@@ -1,0 +1,19 @@
+# Python virtual environments
+.venv/
+env/
+venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE files
+.idea/
+*.iml
+
+# Images (optional if you want to push them)
+*.jpeg
+*.jpg
+*.png
