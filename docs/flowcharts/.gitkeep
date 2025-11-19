@@ -1,0 +1,49 @@
+from graphviz import Digraph
+import os
+
+# Ensure output folder exists
+os.makedirs("docs/flowcharts", exist_ok=True)
+
+# Function to create a flowchart
+def create_flowchart(name, nodes, edges, output_name):
+    dot = Digraph(comment=name)
+    for node_id, node_label in nodes.items():
+        dot.node(node_id, node_label)
+    for edge in edges:
+        if len(edge) == 2:
+            dot.edge(edge[0], edge[1])
+        elif len(edge) == 3:
+            dot.edge(edge[0], edge[1], label=edge[2])
+    dot.render(f'docs/flowcharts/{output_name}', format='png', cleanup=True)
+    print(f"✅ Flowchart saved: docs/flowcharts/{output_name}.png")
+
+# 1) resize_fixed_cv
+nodes1 = {'A': 'Start','B': 'Read Image with cv2.imread','C': 'Image Exists?','D': 'Resize with cv2.resize','E': 'Save Image with cv2.imwrite','F': 'Speak Notification','G': 'Return Resized Image / End'}
+edges1 = [('A','B'), ('B','C'), ('C','D','Yes'), ('C','G','No'), ('D','E'), ('E','F'), ('F','G')]
+create_flowchart("resize_fixed_cv Flow", nodes1, edges1, "resize_fixed_cv")
+
+# 2) resize_fixed_pil
+nodes2 = {'A':'Start', 'B':'Open Image with Pillow', 'C':'Resize using .resize()', 'D':'Save Image', 'E':'Speak Notification', 'F':'Return Resized Image / End'}
+edges2 = [('A','B'),('B','C'),('C','D'),('D','E'),('E','F')]
+create_flowchart("resize_fixed_pil Flow", nodes2, edges2, "resize_fixed_pil")
+
+# 3) resize_percentage
+nodes3 = {'A':'Start', 'B':'Open Image', 'C':'Calculate new dimensions', 'D':'Resize Image', 'E':'Save & Speak', 'F':'Return Image / End'}
+edges3 = [('A','B'),('B','C'),('C','D'),('D','E'),('E','F')]
+create_flowchart("resize_percentage Flow", nodes3, edges3, "resize_percentage")
+
+# 4) batch_resize
+nodes4 = {'A':'Start','B':'Create Output Folder','C':'For each image in folder','D':'Open Image','E':'Resize Image','F':'Save Image','G':'Next Image','H':'Speak Completion','I':'End'}
+edges4 = [('A','B'),('B','C'),('C','D'),('D','E'),('E','F'),('F','G'),('G','C'),('C','H'),('H','I')]
+create_flowchart("batch_resize Flow", nodes4, edges4, "batch_resize")
+
+# 5) display_with_matplotlib
+nodes5 = {'A':'Start', 'B':'Prepare Matplotlib Subplot', 'C':'Convert BGR to RGB if needed','D':'Display Original & Resized Images', 'E':'Turn off axes and set titles', 'F':'Show plot / End'}
+edges5 = [('A','B'),('B','C'),('C','D'),('D','E'),('E','F')]
+create_flowchart("display_with_matplotlib Flow", nodes5, edges5, "display_with_matplotlib")
+
+# 6) gui_file_picker_resize
+nodes6 = {'A':'Start','B':'Open File Dialog','C':'Select Image?','D':'Ask Width & Height','E':'Resize Image','F':'Save Image','G':'Speak Notification','H':'Return Resized Image / End'}
+edges6 = [('A','B'),('B','C'),('C','D','Yes'),('C','H','No'),('D','E'),('E','F'),('F','G'),('G','H')]
+create_flowchart("gui_file_picker_resize Flow", nodes6, edges6, "gui_file_picker_resize")
+
