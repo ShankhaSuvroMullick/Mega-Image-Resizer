@@ -16,4 +16,4 @@ __pycache__/
 # Images (optional if you want to push them)
 *.jpeg
 *.jpg
-*.png
+!*.png
