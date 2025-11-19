@@ -81,7 +81,7 @@ def resize_fixed_pil(image_path: str, width: int, height: int, output_name: str 
     PIL.Image.Image: The resized image object.
     """
     img = Image.open(image_path)
-    resized = img.resize((width, height), Image.ANTIALIAS)  # Smooth resizing
+    resized = img.resize((width, height), RESAMPLE_FILTER)  # Smooth resizing
     resized.save(output_name)
     speak(f"Image resized to width {width} and height {height}")
     return resized
