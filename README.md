@@ -91,3 +91,29 @@ resized = img.resize((width, height), RESAMPLE_FILTER)
 resized.save(output_name)
 ```
 ---
+## Function Flowcharts
+
+### Function Flow: resize_fixed_cv
+![Flowchart resize_fixed_cv](docs/flowcharts/resize_fixed_cv.png)
+
+### Function Flow: resize_fixed_pil
+![Flowchart resize_fixed_pil](docs/flowcharts/resize_fixed_pil.png)
+
+### Function Flow: resize_percentage
+![Flowchart resize_percentage](docs/flowcharts/resize_percentage.png)
+
+### Function Flow: batch_resize
+![Flowchart batch_resize](docs/flowcharts/batch_resize.png)
+
+### Function Flow: display_with_matplotlib
+![Flowchart display_with_matplotlib](docs/flowcharts/display_with_matplotlib.png)
+
+### Function Flow: gui_file_picker_resize
+![Flowchart gui_file_picker_resize](docs/flowcharts/gui_file_picker_resize.png)
+
+### Function Flow: gui_opencv_slider
+![Flowchart gui_opencv_slider](docs/flowcharts/gui_opencv_slider.png)
+
+### Function Flow: main_menu
+![Flowchart main_menu](docs/flowcharts/main_menu.png)
+
