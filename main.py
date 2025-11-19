@@ -1,7 +1,5 @@
 """
 Mega Image Resizer
-Author: Your Name
-Date: 2025-11-19
 
 Description:
 A Python program that allows resizing images in multiple ways:
