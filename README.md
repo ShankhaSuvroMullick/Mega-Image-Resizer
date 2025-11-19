@@ -87,7 +87,7 @@ cv2.imwrite(output_name, resized)
 
 ```python
 img = Image.open(image_path)
-resized = img.resize((width, height), Image.ANTIALIAS)
+resized = img.resize((width, height), RESAMPLE_FILTER)
 resized.save(output_name)
 ```
 ---
