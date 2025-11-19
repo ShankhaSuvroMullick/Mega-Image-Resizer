@@ -47,3 +47,13 @@ nodes6 = {'A':'Start','B':'Open File Dialog','C':'Select Image?','D':'Ask Width 
 edges6 = [('A','B'),('B','C'),('C','D','Yes'),('C','H','No'),('D','E'),('E','F'),('F','G'),('G','H')]
 create_flowchart("gui_file_picker_resize Flow", nodes6, edges6, "gui_file_picker_resize")
 
+# 7) gui_opencv_slider
+nodes7 = {'A':'Start','B':'Open File Dialog','C':'Load Image with cv2.imread','D':'Create Window + Trackbars','E':'While loop: Read sliders, Resize, Display','F':'ESC Key Pressed?','G':'Save Image & Speak','H':'Destroy Window','I':'Return Resized Image / End'}
+edges7 = [('A','B'),('B','C'),('C','D'),('D','E'),('E','F'),('F','G','Yes'),('F','E','No'),('G','H'),('H','I')]
+create_flowchart("gui_opencv_slider Flow", nodes7, edges7, "gui_opencv_slider")
+
+# 8) main_menu
+nodes8 = {'A':'Start','B':'Display Menu','C':'Get User Choice','D':'Call Appropriate Function','E':'Repeat Until Exit','F':'End'}
+edges8 = [('A','B'),('B','C'),('C','D'),('D','E'),('E','B')]
+create_flowchart("main_menu Flow", nodes8, edges8, "main_menu")
+
